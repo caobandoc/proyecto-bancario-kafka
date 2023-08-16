@@ -11,6 +11,10 @@ java {
 	sourceCompatibility = '17'
 }
 
+bootJar {
+	enabled = false
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -23,6 +27,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation project(':cqrs.core')
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

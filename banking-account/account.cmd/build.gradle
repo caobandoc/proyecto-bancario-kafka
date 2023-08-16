@@ -19,17 +19,19 @@ configurations {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'org.springframework.kafka:spring-kafka'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'io.projectreactor:reactor-test'
-	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb:3.1.2'
+	implementation 'org.springframework.boot:spring-boot-starter:3.1.2'
+	implementation 'org.springframework.kafka:spring-kafka:3.0.9'
+	implementation project(':cqrs.core')
+	implementation project(':account.common')
+	compileOnly 'org.projectlombok:lombok:1.18.28'
+	annotationProcessor 'org.projectlombok:lombok:1.18.28'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.1.2'
+	testImplementation 'org.springframework.kafka:spring-kafka-test:3.0.9'
 }
 
 tasks.named('test') {
