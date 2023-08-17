@@ -2,11 +2,13 @@ package com.caoc.banking.cqrs.core.domain;
 
 import com.caoc.banking.cqrs.core.events.BaseEvent;
 
+import lombok.extern.slf4j.Slf4j;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+@Slf4j
 public abstract class AggregateRoot {
     protected String id;
     private int version = -1;
