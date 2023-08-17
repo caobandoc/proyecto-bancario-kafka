@@ -1,13 +1,10 @@
 rootProject.name = 'banking-account'
 
-include ':account.cmd'
-project(':account.cmd').projectDir = file('./account.cmd')
-
-include ':account.common'
-project(':account.common').projectDir = file('./account.common')
-
-include ':account.query'
-project(':account.query').projectDir = file('./account.query')
-
-include ':cqrs.core'
-project(':cqrs.core').projectDir = file('../cqrs-es/cqrs.core')
+include ':account-cmd'
+include ':account-common'
+include ':account-query'
+include ':cqrs-core'
+project(':account-cmd').projectDir = file('./account-cmd')
+project(':account-common').projectDir = file('./account-common')
+project(':account-query').projectDir = file('./account-query')
+project(':cqrs-core').projectDir = file('../cqrs-es/cqrs-core')

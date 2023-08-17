@@ -1,0 +1,29 @@
+server:
+  port: 5001
+spring:
+  application:
+    name: "AccountQuery"
+  jpa:
+    database-platform: "org.hibernate.dialect.MySQL8Dialect"
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${MYSQL_URL}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+  kafka:
+    listener:
+      ack-mode: MANUAL_IMMEDIATE
+    consumer:
+      bootstrap-servers: "${KAFKA_URI}"
+      group-id: bankaccConsumer
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"

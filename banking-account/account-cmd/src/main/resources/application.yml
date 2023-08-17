@@ -1,0 +1,28 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: "AccountCmd"
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+      #host: ${MONGODB_HOST}
+      #port:
+      database: ${MONGODB_DATABASE}
+      #username: ${MONGODB_USERNAME}
+      #password: ${MONGODB_PASSWORD}
+      #authentication-database: admin
+  kafka:
+    producer:
+      bootstrap-servers: ${KAFKA_URI}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+  endpoint:
+    health:
+      probes:
+        enabled: true
